@@ -1,0 +1,23 @@
+${AnsiColor.YELLOW}Welcome to Chaos! ${AnsiColor.BRIGHT_YELLOW}
+
+
+   _____   _    _               ____     _____       ${AnsiColor.YELLOW}
+  / ____| | |  | |     /\      / __ \   / ____|      ${AnsiColor.BRIGHT_GREEN}
+ | |      | |__| |    /  \    | |  | | | (___        ${AnsiColor.BRIGHT_CYAN}
+ | |      |  __  |   / /\ \   | |  | |  \___ \       ${AnsiColor.BLUE}
+ | |____  | |  | |  / ____ \  | |__| |  ____) |      ${AnsiColor.MAGENTA}
+  \_____| |_|  |_| /_/    \_\  \____/  |_____/       ${AnsiColor.YELLOW}
+
+
+
+
+${AnsiColor.CYAN}Gitlab:${AnsiColor.CYAN}http://gitlab.cecdat.com/framework/backend/rock
+HomePage:${AnsiColor.CYAN}http://192.168.6.146:3000/
+${AnsiColor.CYAN}SpringBoot${AnsiColor.BRIGHT_GREEN}:${AnsiColor.RED}${AnsiColor.MAGENTA}${spring-boot.formatted-version}
+${AnsiColor.CYAN}Chaos{AnsiColor.BRIGHT_GREEN}:${AnsiColor.RED}${AnsiColor.MAGENTA}(v3.0.0.PRE)
+
+
+${AnsiColor.CYAN}From Chaos BE Group
+${AnsiColor.WHITE}################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+

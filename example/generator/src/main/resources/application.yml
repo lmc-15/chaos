@@ -1,0 +1,13 @@
+
+spring:  
+  profiles:  
+    active: dev
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: 8085 # 监听端口
+
+  
+  
+  
+  

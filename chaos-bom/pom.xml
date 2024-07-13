@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dev</groupId>
+    <artifactId>chaos-bom</artifactId>
+    <version>1.0.0.PRE</version>
+    <packaging>pom</packaging>
+    <name>chaos-bom</name>
+    <description>Chaos Bom</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-core</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-oss-starter</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-redis</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-kafka</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-web</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-openfeign</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-cloud</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-data</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <properties>
+        <chaos.vision>1.0.0.PRE</chaos.vision>
+    </properties>
+
+</project>

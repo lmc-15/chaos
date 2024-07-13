@@ -1,0 +1,24 @@
+/*
+* @(#) CecProjectController.java 2018/09/18
+*
+* Copyright 2018 CEC(Fujian) Healthcare Big Data Operation Service Co., Ltd. All rights reserved.
+*/
+package $!{package.Service};
+
+
+import $!{superServiceClassPackage};
+import $!{package.Entity}.$!{entity};
+#set ( $!entityId = $!{table.fields[0]})
+
+  /**
+ * <code> $!{table.serviceName}  </code>
+ * <p>
+ * $!{table.comment} 服务类
+ *
+ * @author $!{author}
+ * @version v0.1 2018/09/18
+ * @since JDK1.8
+ */
+public interface $!{table.serviceName} extends IService<$!{entity}> {
+
+}

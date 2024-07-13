@@ -1,0 +1,110 @@
+/*
+* @(#) CecProjectController.java 2018/09/18
+* 
+* Copyright 2018 CEC(Fujian) Healthcare Big Data Operation Service Co., Ltd. All rights reserved.
+*/
+package $!{package.Controller};
+
+
+import java.util.List;
+
+import com.cecdat.core.model.Result;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import $!{package.Entity}.$!{entity};
+import $!{package.Service}.$!{table.serviceName};
+
+
+ /**
+ * <code>$!{table.controllerName} </code>
+ * <p>
+ * $!{table.controllerName} 相关api接口
+ *
+ * @author $!{author}
+ * @version v0.1 2018/09/18
+ * @since JDK1.8
+ */
+@RestController
+@RequestMapping(value = "/v1/$!{table.name}")
+@Slf4j
+@Api(tags = {"$!{table.comment}相关API"})
+public class $!{table.controllerName} {
+
+	@Autowired
+	$!{table.serviceName} m$!{entity}Service;
+
+    
+    /**
+     * 获取$!{table.comment}列表
+     *
+     * @return entitys 对象分页列表
+     */
+    @ApiOperation(value="$!{table.comment}列表", httpMethod = "GET",  notes = "查询$!{table.comment}列表")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public Result<List<$!{entity}>> list$!{entity}List() {
+
+		return Result.ok(m$!{entity}Service.list());
+    }
+
+
+    /**
+     * 通过id获取$!{table.comment}
+     *
+     * @param id     获取参数
+     * @return entity 对象
+     */
+    @ApiOperation(value="$!{table.comment}详情", httpMethod = "GET", notes = "根据id获取$!{table.comment}详情信息")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Result<$!{entity}> getById(@PathVariable $!{entityId.propertyType} id){
+
+        return Result.ok(m$!{entity}Service.getById(id));
+    }
+ 
+    
+   
+    /**
+     * 添加$!{table.comment}
+     *
+     * @param param     创建参数
+     * @return entity 对象
+     */
+    @ApiOperation(value="$!{table.comment}保存", httpMethod = "POST", notes = "保存$!{table.comment}信息")
+	@RequestMapping(value = "", method = RequestMethod.POST)
+    public Result<Boolean> save(@RequestBody $!{entity} param){
+        return Result.ok(m$!{entity}Service.save(param));
+    }
+    
+    /**
+     * 通过id更新$!{table.comment}
+     *
+     * @param id    修改ID
+     * @param param 修改参数
+     * @return entity 对象
+     */
+    @ApiOperation(value="$!{table.comment}更新", httpMethod = "PUT", notes = "更新$!{table.comment}信息")
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Result<Boolean> updateById(@PathVariable $!{entityId.propertyType} id, @RequestBody $!{entity} param) {
+
+		param.set$!{entityId.propertyName.substring(0,1).toUpperCase()}$!{entityId.propertyName.substring(1)}(id);
+        return Result.ok(m$!{entity}Service.updateById(param));
+    }
+
+
+    /**
+     *   通过id删除$!{table.comment}
+     *
+     * @param id     删除id
+     * @return entity 对象
+     */
+    @ApiOperation(value="$!{table.comment}删除", httpMethod = "DELETE", notes = "删除$!{table.comment}信息")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public Result<Boolean> removeById(@PathVariable $!{entityId.propertyType} id)  {
+
+        return Result.ok(m$!{entity}Service.removeById(id));
+    }
+	
+}

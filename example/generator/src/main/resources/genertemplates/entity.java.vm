@@ -1,0 +1,82 @@
+/*
+* @(#) CecProjectController.java 2018/09/18
+* 
+* Copyright 2018 CEC(Fujian) Healthcare Big Data Operation Service Co., Ltd. All rights reserved.
+*/
+package $!{package.Entity};
+
+import com.baomidou.mybatisplus.annotation.*;
+#foreach($pkg in ${table.importPackages})
+import ${pkg};
+#end
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
+
+
+ /**
+ * <code> $!{entity} </code>
+ * <p>
+ *
+ * @author $!{author}
+ * @version v0.1 2018/09/18
+ * @since JDK1.8
+ */
+@ApiModel(value="$!{table.comment}对象",description="$!{table.comment}实体对象描述")
+@TableName("$!{table.name}")
+public class $!{entity} extends Model<$!{entity}> {
+
+    private static final long serialVersionUID = 1L;
+
+## ----------  BEGIN 字段循环遍历  ----------
+#foreach($!field in $!{table.fields})
+ #if($!{field.keyFlag})
+    @ApiModelProperty(value="$!{field.comment}")
+    @TableId("$!{field.name}")
+ #set ( $!entityId = $!{field})
+ #elseif($!{field.name} == "delete_status")
+    @ApiModelProperty(value="$!{field.comment}",hidden = true)
+    @TableField(value = "$!{field.name}", fill = FieldFill.INSERT)
+    @TableLogic
+ #elseif($!{field.name} == "create_time")
+    @ApiModelProperty(value="$!{field.comment}",hidden = true)
+    @TableField(value = "$!{field.name}",fill = FieldFill.INSERT)
+ #elseif($!{field.name} == "update_time")
+    @ApiModelProperty(value="$!{field.comment}",hidden = true)
+    @TableField(value = "$!{field.name}",fill = FieldFill.INSERT_UPDATE)
+ #else
+    @ApiModelProperty(value="$!{field.comment}")
+    @TableField("$!{field.name}")
+ #end
+    private $!{field.propertyType} $!{field.propertyName};
+
+#end
+
+#foreach($field in ${table.fields})
+    #if(${field.propertyType.equals("boolean")})
+        #set($getprefix="is")
+    #else
+        #set($getprefix="get")
+    #end
+
+    public ${field.propertyType} ${getprefix}${field.capitalName}() {
+        return ${field.propertyName};
+    }
+
+    #if(${chainModel})
+    public ${entity} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+    #else
+    public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+    #end
+        this.${field.propertyName} = ${field.propertyName};
+    #if(${chainModel})
+        return this;
+    #end
+    }
+#end
+
+## ----------  END 字段循环遍历  ----------
+	@Override
+	protected Serializable pkVal() {
+		return this.$!{entityId.propertyName};
+	}
+}

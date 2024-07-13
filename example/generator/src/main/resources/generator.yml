@@ -1,0 +1,6 @@
+moduleName: demo
+author: developer<developer@cecdat.com>
+database: dev
+basePackage: com.dev.server.demo
+tables:
+  

@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.dev.config.WebMvcConfig,\
+    com.dev.config.ConvertConfig,\
+  com.dev.config.GlobalSwaggerConfig,\
+  com.dev.config.GlobalExceptionHandler
