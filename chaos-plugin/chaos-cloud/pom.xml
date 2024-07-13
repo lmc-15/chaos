@@ -12,10 +12,6 @@
     <artifactId>chaos-cloud</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dev</groupId>
-            <artifactId>chaos-openfeign</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

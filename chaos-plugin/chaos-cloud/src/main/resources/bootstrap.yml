@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: ${PLATFORM_TYPE:dev}
+  cloud:
+    nacos:
+      server-addr: ${CONFIG_URL:127.0.0.1:28848}
+      config:
+        enabled: true
+        file-extension: yaml
+        namespace: ${spring.profiles.active}
+        group: CHAOS
+      discovery:
+        ephemeral: true
+        namespace: ${spring.profiles.active}
+        group: CHAOS

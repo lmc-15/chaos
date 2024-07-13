@@ -16,10 +16,8 @@
 
     <modules>
         <module>chaos-kafka</module>
-        <module>chaos-oss-starter</module>
         <module>chaos-web</module>
         <module>chaos-redis</module>
-        <module>chaos-openfeign</module>
         <module>chaos-cloud</module>
         <module>chaos-data</module>
     </modules>
