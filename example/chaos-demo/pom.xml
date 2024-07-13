@@ -10,7 +10,7 @@
         <version>1.0.0.PRE</version>
         <relativePath/>
     </parent>
-    <groupId>com.lmc</groupId>
+    <groupId>com.dev</groupId>
     <artifactId>chaos-demo</artifactId>
     <version>1.0.0</version>
     <dependencies>

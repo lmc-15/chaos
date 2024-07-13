@@ -26,7 +26,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*Dao.xml,classpath:**/*Dao.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.lmc.**.entity
+  typeAliasesPackage: com.dev.**.entity
   global-config:
     db-config:
       id-type: AUTO
@@ -43,4 +43,4 @@ server:
   port: 8882 # 监听端口
 chaos:
   swagger:
-    scan: com.lmc
+    scan: com.dev
