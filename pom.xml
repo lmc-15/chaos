@@ -38,6 +38,7 @@
         <module>chaos-starter</module>
         <module>chaos-core</module>
         <module>example</module>
+        <module>chaos-starter/chaos-context-starter</module>
     </modules>
 
     <properties>

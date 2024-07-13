@@ -7,14 +7,16 @@
         <groupId>com.dev</groupId>
         <artifactId>chaos-parent</artifactId>
         <version>1.0.0.PRE</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>chaos-starter</artifactId>
 
-    <modules>
-        <module>chaos-redis-lock</module>
-    </modules>
+    <artifactId>chaos-context-starter</artifactId>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+    </dependency>
+</dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

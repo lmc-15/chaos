@@ -1,6 +1,7 @@
 package com.dev.data.model;
 
-import org.springframework.util.CollectionUtils;
+
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;

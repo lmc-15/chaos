@@ -14,7 +14,6 @@
     <artifactId>example</artifactId>
     <modules>
         <module>generator</module>
-        <module>chaos-demo</module>
     </modules>
 
     <properties>

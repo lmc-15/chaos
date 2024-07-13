@@ -53,6 +53,16 @@
                 <artifactId>chaos-data</artifactId>
                 <version>${chaos.vision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-redis-lock</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dev</groupId>
+                <artifactId>chaos-context-starter</artifactId>
+                <version>${chaos.vision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
