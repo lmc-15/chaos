@@ -11,10 +11,10 @@ ${AnsiColor.YELLOW}Welcome to Chaos! ${AnsiColor.BRIGHT_YELLOW}
 
 
 
-${AnsiColor.CYAN}Gitlab:${AnsiColor.CYAN}http://gitlab.cecdat.com/framework/backend/rock
+${AnsiColor.CYAN}github:${AnsiColor.CYAN}https://github.com/lmc-15/Chaos
 HomePage:${AnsiColor.CYAN}http://192.168.6.146:3000/
 ${AnsiColor.CYAN}SpringBoot${AnsiColor.BRIGHT_GREEN}:${AnsiColor.RED}${AnsiColor.MAGENTA}${spring-boot.formatted-version}
-${AnsiColor.CYAN}Chaos{AnsiColor.BRIGHT_GREEN}:${AnsiColor.RED}${AnsiColor.MAGENTA}(v3.0.0.PRE)
+${AnsiColor.CYAN}Chaos{AnsiColor.BRIGHT_GREEN}:${AnsiColor.RED}${AnsiColor.MAGENTA}(v1.0.0.PRE)
 
 
 ${AnsiColor.CYAN}From Chaos BE Group
