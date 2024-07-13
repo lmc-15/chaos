@@ -20,7 +20,16 @@
         </dependency>
         <dependency>
             <groupId>com.dev</groupId>
+            <artifactId>chaos-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dev</groupId>
             <artifactId>chaos-data</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -33,6 +42,7 @@
         </dependency>
     </dependencies>
     <properties>
+        <fastjson.version>1.2.76</fastjson.version>
         <flyway.version>7.15.0</flyway.version>
         <chaos.version>1.0.0.PRE</chaos.version>
         <maven.compiler.source>8</maven.compiler.source>

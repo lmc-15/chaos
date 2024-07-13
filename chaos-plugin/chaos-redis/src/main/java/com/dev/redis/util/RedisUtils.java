@@ -9,18 +9,13 @@ import com.dev.core.ids.Ids;
 import com.dev.core.util.CollUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.TimeoutUtils;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.scripting.support.ResourceScriptSource;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -39,12 +34,11 @@ import static com.dev.core.constant.GlobalConstants.REDIS_DELIMITER;
  * @version v1.1 2021/01/25
  * @since JDK1.8
  */
-@Component
 public class RedisUtils {
 
     private static final Logger log = LoggerFactory.getLogger(RedisUtils.class);
 
-    private String prefix;
+    private final String prefix;
 
 
     protected RedisTemplate<String, Object> redisTemplate;
@@ -53,6 +47,11 @@ public class RedisUtils {
     protected StringRedisTemplate stringRedisTemplate;
 
 
+    public RedisUtils(String prefix, RedisTemplate<String, Object> redisTemplate, StringRedisTemplate stringRedisTemplate) {
+        this.prefix = prefix;
+        this.redisTemplate = redisTemplate;
+        this.stringRedisTemplate = stringRedisTemplate;
+    }
 
     /**
      * 批量删除对应的value
@@ -474,7 +473,7 @@ public class RedisUtils {
      * @param action
      * @param <T>
      * @return
-     * @see org.springframework.data.redis.core.RedisOperations#execute(org.springframework.data.redis.core.RedisCallback)
+     * @see org.springframework.data.redis.core.RedisOperations#execute(RedisCallback)
      */
     public <T> T execute(RedisCallback<T> action) {
         return redisTemplate.execute(action);
@@ -599,35 +598,8 @@ public class RedisUtils {
         List<String> keys = new ArrayList<>();
         keys.add(key);
         Long ret = runLuaScript(luaScript, Long.class, keys, value, Long.toString(TimeoutUtils.toSeconds(timeout, timeUnit)));
-        return 1 == ret;
+        return new Long(1).equals(ret);
     }
-    /**
-     * 标记：当前 redis 连接信息是否已初始化成功
-     */
-    public boolean isInit = false;
-    @Autowired
-    public void init(RedisConnectionFactory connectionFactory) {
-        // 如果已经初始化成功了，就立刻退出，不重复初始化
-        if(this.isInit) {
-            return;
-        }
 
-        // 指定相应的序列化方案
-        StringRedisSerializer keySerializer = new StringRedisSerializer();
-        JdkSerializationRedisSerializer valueSerializer = new JdkSerializationRedisSerializer();
-
-        // 构建StringRedisTemplate
-        StringRedisTemplate stringTemplate = new StringRedisTemplate();
-        stringTemplate.setConnectionFactory(connectionFactory);
-        stringTemplate.afterPropertiesSet();
-
-
-        // 开始初始化相关组件
-        this.stringRedisTemplate = stringTemplate;
-
-        // 打上标记，表示已经初始化成功，后续无需再重新初始化
-        this.isInit = true;
-        this.prefix = "chaos";
-    }
 
 }
