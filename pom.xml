@@ -15,8 +15,28 @@
     <artifactId>chaos-parent</artifactId>
     <version>1.0.0.PRE</version>
     <packaging>pom</packaging>
+    <scm>
+        <url>git@github.com:alibaba/nacos.git</url>
+        <connection>scm:git@github.com:alibaba/nacos.git</connection>
+        <developerConnection>scm:git@github.com:alibaba/nacos.git</developerConnection>
+        <tag>chaos-parent-${revision}</tag>
+    </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <!-- The ID here must be exactly the same as the value
+             of the server element id in the settings.xml file of MAVEN -->
+            <id>sona</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sona</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <!-- 仓库依赖 -->
     <dependencies>
+
 
     </dependencies>
     <dependencyManagement>
